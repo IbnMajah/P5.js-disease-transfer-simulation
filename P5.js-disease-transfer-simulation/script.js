@@ -24,7 +24,7 @@ function draw() {
   text("Code By Ibn Majah (MagnificentTerminator)", width - 775, height - 20);
   for (var i = 0; i < p.length; i++) {
     p[i].update();
-    // p[i].checkPositions(p.slice(i));
+    p[i].checkPositions(p.slice(i));
     p[i].draw();
     for (let k = 0; k < p.length; k++) {
       if (i != k && p[i].intersects(p[k]) && p[i].col != p[k].col) {
@@ -67,7 +67,7 @@ class Particle {
   checkPositions(particles) {
     particles.forEach((p) => {
       const d = dist(this.pos.x, this.pos.y, p.pos.x, p.pos.y);
-      if (d < 150) {
+      if (d < 50) {
         stroke(this.col);
         line(this.pos.x, this.pos.y, p.pos.x, p.pos.y);
       }
